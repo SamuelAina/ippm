@@ -1,0 +1,521 @@
+:root {
+  --green-900: #274e1f;
+  --green-800: #315d27;
+  --green-200: #dcebd1;
+  --green-100: #edf5e8;
+  --green-050: #f7fbf4;
+  --blue-700: #20528a;
+  --border: #9aa39a;
+  --text: #172017;
+  --muted: #5d685d;
+  --danger: #a62828;
+  --focus: #0b6ecf;
+  --white: #ffffff;
+  --shadow: 0 18px 45px rgba(25, 54, 20, 0.14);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  background: #eef3ec;
+  color: var(--text);
+  font-family: Arial, Helvetica, sans-serif;
+  line-height: 1.45;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  width: min(1120px, calc(100% - 24px));
+  margin: 24px auto;
+}
+
+.application-form {
+  overflow: hidden;
+  background: var(--white);
+  border: 2px solid var(--green-800);
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.form-header {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 180px;
+  min-height: 180px;
+  background: var(--green-200);
+  border-bottom: 2px solid var(--green-800);
+}
+
+.brand-panel {
+  display: grid;
+  grid-template-columns: 128px 1fr;
+  gap: 18px;
+  align-items: center;
+  padding: 24px;
+}
+
+.logo-wrap {
+  position: relative;
+  display: grid;
+  place-items: center;
+  min-height: 110px;
+}
+
+.logo-wrap img {
+  display: block;
+  max-width: 118px;
+  max-height: 105px;
+  object-fit: contain;
+}
+
+.logo-fallback {
+  display: none;
+  width: 100px;
+  height: 100px;
+  place-items: center;
+  border: 3px solid var(--green-900);
+  border-radius: 50%;
+  color: var(--green-900);
+  font-size: 1.4rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.heading-copy {
+  text-align: center;
+}
+
+.heading-copy h1 {
+  margin: 0;
+  color: var(--green-900);
+  font-size: clamp(1.45rem, 3vw, 2.3rem);
+  line-height: 1.05;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.approval-note {
+  margin: 10px 0;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.heading-copy h2 {
+  margin: 0;
+  color: var(--blue-700);
+  font-size: clamp(1.1rem, 2vw, 1.65rem);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.photo-panel {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 12px;
+  background: var(--white);
+  border-left: 2px solid var(--green-800);
+  text-align: center;
+}
+
+.photo-label {
+  margin-bottom: 8px;
+  font-weight: 800;
+}
+
+.photo-preview {
+  display: grid;
+  width: 130px;
+  height: 145px;
+  place-items: center;
+  overflow: hidden;
+  border: 1px dashed var(--border);
+  background: #fafafa;
+  color: var(--muted);
+  font-size: 0.72rem;
+}
+
+.photo-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-panel input[type="file"] {
+  width: 100%;
+  margin-top: 8px;
+  font-size: 0.72rem;
+}
+
+.fee-notice {
+  padding: 12px 18px;
+  background: var(--green-100);
+  border-bottom: 2px solid var(--green-800);
+  text-align: center;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.form-section {
+  padding: 0 18px 20px;
+  background: var(--green-050);
+}
+
+.form-section h3 {
+  margin: 0 -18px 18px;
+  padding: 8px 16px;
+  background: var(--green-900);
+  color: var(--white);
+  text-align: center;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.form-section + .form-section {
+  border-top: 12px solid var(--green-200);
+}
+
+.grid {
+  display: grid;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.three-columns {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.two-columns {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.field {
+  display: flex;
+  min-width: 0;
+  flex-direction: column;
+}
+
+.field label {
+  margin-bottom: 4px;
+  font-size: 0.84rem;
+  font-weight: 800;
+}
+
+.field input,
+.field select,
+.field textarea,
+table input {
+  width: 100%;
+  border: 1px solid var(--border);
+  border-radius: 2px;
+  background: var(--white);
+  color: var(--text);
+  padding: 9px 10px;
+  outline: none;
+}
+
+.field textarea {
+  resize: vertical;
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus,
+table input:focus {
+  border-color: var(--focus);
+  box-shadow: 0 0 0 3px rgba(11, 110, 207, 0.18);
+}
+
+.field input:user-invalid,
+.field select:user-invalid,
+.field textarea:user-invalid {
+  border-color: var(--danger);
+}
+
+.field small {
+  margin-top: 4px;
+  color: var(--muted);
+}
+
+.instructions {
+  margin: 0 0 18px;
+  font-size: 0.87rem;
+  font-style: italic;
+}
+
+.qualification-block + .qualification-block {
+  margin-top: 24px;
+}
+
+.section-subheading {
+  display: flex;
+  gap: 16px;
+  align-items: end;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.section-subheading h4 {
+  margin: 0;
+  color: var(--green-900);
+  font-size: 1rem;
+}
+
+.section-subheading p {
+  margin: 3px 0 0;
+  color: var(--muted);
+  font-size: 0.82rem;
+}
+
+.table-scroll {
+  overflow-x: auto;
+}
+
+table {
+  width: 100%;
+  min-width: 680px;
+  border-collapse: collapse;
+  background: var(--white);
+}
+
+th,
+td {
+  border: 1px solid var(--border);
+  padding: 5px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+th {
+  background: var(--green-200);
+  font-size: 0.8rem;
+}
+
+.action-column {
+  width: 74px;
+  text-align: center;
+}
+
+.supporting-files {
+  margin-top: 24px;
+}
+
+.checkbox-field {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  gap: 10px;
+  align-items: start;
+  margin-bottom: 16px;
+}
+
+.checkbox-field input {
+  width: 18px;
+  height: 18px;
+  margin: 3px 0 0;
+}
+
+.checkbox-field label {
+  margin: 0;
+}
+
+.form-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: flex-end;
+  padding: 18px;
+  border-top: 2px solid var(--green-800);
+  background: var(--green-100);
+}
+
+.primary-button,
+.secondary-button {
+  min-height: 40px;
+  border-radius: 4px;
+  padding: 9px 14px;
+  font-weight: 800;
+}
+
+.primary-button {
+  border: 1px solid var(--green-900);
+  background: var(--green-900);
+  color: var(--white);
+}
+
+.primary-button:hover {
+  background: #1e3c18;
+}
+
+.secondary-button {
+  border: 1px solid var(--green-900);
+  background: var(--white);
+  color: var(--green-900);
+}
+
+.secondary-button:hover {
+  background: var(--green-100);
+}
+
+.text-button {
+  border: 0;
+  background: transparent;
+  color: var(--danger);
+  padding: 4px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-decoration: underline;
+}
+
+.form-message {
+  display: none;
+  margin: 16px 18px 0;
+  border: 1px solid;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+.form-message.visible {
+  display: block;
+}
+
+.form-message.success {
+  border-color: #3d7c34;
+  background: #eef8ea;
+  color: #244b1f;
+}
+
+.form-message.error {
+  border-color: #a62828;
+  background: #fff1f1;
+  color: #7b1d1d;
+}
+
+.form-footer {
+  background: var(--green-900);
+  color: var(--white);
+  text-align: center;
+}
+
+.form-footer p {
+  margin: 0;
+  padding: 12px;
+  background: var(--green-200);
+  color: var(--green-900);
+  font-style: italic;
+  font-weight: 800;
+}
+
+.form-footer span {
+  display: block;
+  padding: 8px;
+  font-size: 0.82rem;
+}
+
+@media (max-width: 800px) {
+  .form-header {
+    grid-template-columns: 1fr;
+  }
+
+  .photo-panel {
+    border-top: 2px solid var(--green-800);
+    border-left: 0;
+  }
+
+  .brand-panel {
+    grid-template-columns: 1fr;
+  }
+
+  .logo-wrap {
+    min-height: auto;
+  }
+
+  .three-columns,
+  .two-columns {
+    grid-template-columns: 1fr;
+  }
+
+  .section-subheading {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .section-subheading .secondary-button {
+    align-self: flex-start;
+  }
+}
+
+@media (max-width: 520px) {
+  .page-shell {
+    width: 100%;
+    margin: 0;
+  }
+
+  .application-form {
+    border-right: 0;
+    border-left: 0;
+  }
+
+  .brand-panel,
+  .form-section,
+  .form-actions {
+    padding-right: 12px;
+    padding-left: 12px;
+  }
+
+  .form-section h3 {
+    margin-right: -12px;
+    margin-left: -12px;
+  }
+
+  .form-actions > button {
+    width: 100%;
+  }
+}
+
+@media print {
+  body {
+    background: var(--white);
+  }
+
+  .page-shell {
+    width: 100%;
+    margin: 0;
+  }
+
+  .application-form {
+    border: 1px solid var(--green-900);
+    box-shadow: none;
+  }
+
+  .form-actions,
+  .remove-row,
+  #passportPhoto,
+  #removePhoto,
+  #cvFile,
+  #certificateFiles {
+    display: none !important;
+  }
+
+  .form-message {
+    display: none !important;
+  }
+
+  .form-section {
+    break-inside: avoid;
+  }
+}
